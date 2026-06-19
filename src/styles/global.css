@@ -231,8 +231,8 @@ a:hover {
   color: white;
   overflow: hidden;
   padding: 6rem 0;
-  border-bottom-left-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
+  /* border-bottom-left-radius: var(--radius-lg); */
+  /* border-bottom-right-radius: var(--radius-lg); */
 }
 
 .hero-overlay {
@@ -249,7 +249,7 @@ a:hover {
   position: absolute;
   width: 40vw;
   height: 40vw;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, rgba(79, 70, 229, 0) 70%);
+  background: radial-gradient(circle, rgba(from var(--color-accent) r g b / 0.3) 0%, rgba(from var(--color-accent) r g b / 0) 70%);
   top: -10vw;
   right: -10vw;
   z-index: 0;

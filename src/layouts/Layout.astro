@@ -38,8 +38,12 @@ const isActiveLink = (path: string) => {
   <body>
     <header class="site-header">
       <div class="container header-container">
-        <a href={base} class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
-          <img src={`${base}logo.png`} alt="TUKUJU Logo" style="height: 2.75rem; width: auto; object-fit: contain;" />
+        <a href={base} class="logo" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+          <img src={`${base}logo.png`} alt="TUKUJU Logo" style="height: 3.2rem; width: auto; object-fit: contain;" />
+          <div style="display: flex; flex-direction: column; line-height: 1.1; justify-content: center;">
+            <span style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 800; background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Tudorfer Kulturverein</span>
+            <span style="font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.1rem; display: block; white-space: nowrap;">für junge Unterhaltung e.V.</span>
+          </div>
         </a>
         <nav>
           <ul class="nav-list">
@@ -71,8 +75,12 @@ const isActiveLink = (path: string) => {
     <footer class="site-footer">
       <div class="container footer-container">
         <div>
-          <div class="footer-logo" style="margin-bottom: 0.5rem;">
-            <img src={`${base}logo.png`} alt="TUKUJU Logo" style="height: 2.5rem; width: auto; object-fit: contain;" />
+          <div class="footer-logo" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <img src={`${base}logo.png`} alt="TUKUJU Logo" style="height: 2.75rem; width: auto; object-fit: contain;" />
+            <div style="display: flex; flex-direction: column; line-height: 1.1; justify-content: center;">
+              <span style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: white;">Tudorfer Kulturverein</span>
+              <span style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 700; color: var(--color-accent); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.1rem; display: block; white-space: nowrap;">für junge Unterhaltung e.V.</span>
+            </div>
           </div>
           <p style="color: #64748b; margin-top: 0.5rem; font-size: 0.85rem;">Fostering culture and community since 1998.</p>
         </div>

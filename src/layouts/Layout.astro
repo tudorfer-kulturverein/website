@@ -38,9 +38,8 @@ const isActiveLink = (path: string) => {
   <body>
     <header class="site-header">
       <div class="container header-container">
-        <a href={base} class="logo">
-          <span class="logo-icon"></span>
-          Tudorfer Kulturverein
+        <a href={base} class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src={`${base}logo.png`} alt="TUKUJU Logo" style="height: 2.75rem; width: auto; object-fit: contain;" />
         </a>
         <nav>
           <ul class="nav-list">
@@ -72,9 +71,8 @@ const isActiveLink = (path: string) => {
     <footer class="site-footer">
       <div class="container footer-container">
         <div>
-          <div class="footer-logo">
-            <span class="logo-icon"></span>
-            Tudorfer Kulturverein
+          <div class="footer-logo" style="margin-bottom: 0.5rem;">
+            <img src={`${base}logo.png`} alt="TUKUJU Logo" style="height: 2.5rem; width: auto; object-fit: contain;" />
           </div>
           <p style="color: #64748b; margin-top: 0.5rem; font-size: 0.85rem;">Fostering culture and community since 1998.</p>
         </div>

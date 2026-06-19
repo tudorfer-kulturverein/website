@@ -1,6 +1,7 @@
 ---
 title: "About Us"
 description: "Learn more about Tudorfer Kulturverein, our mission, and the people behind the club."
+order: 1
 ---
 
 # About Tudorfer Kulturverein

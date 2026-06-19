@@ -10,7 +10,8 @@ interface Props {
 const { title, description = "Tudorfer Kulturverein - Fostering community, culture, and traditions." } = Astro.props;
 
 // Fetch all pages dynamically for the navbar
-const allPages = await getCollection('pages');
+const allPages = (await getCollection('pages'))
+  .sort((a, b) => a.data.order - b.data.order);
 
 // Determine if we are on a page to add "active" class
 const currentPath = Astro.url.pathname;
@@ -49,7 +50,7 @@ const isActiveLink = (path: string) => {
           <ul class="nav-list">
             <li>
               <a href={base} class={isActiveLink(base) ? 'nav-link active' : 'nav-link'}>
-                Blog
+                Home
               </a>
             </li>
             {allPages.map(page => {
@@ -82,10 +83,11 @@ const isActiveLink = (path: string) => {
           <p style="color: #64748b; margin-top: 0.5rem; font-size: 0.85rem;">Fostering culture and community since 1998.</p>
         </div>
         <ul class="footer-nav">
-          <li><a href={base} class="footer-link">Blog</a></li>
+          <li><a href={base} class="footer-link">Home</a></li>
           {allPages.map(page => (
             <li><a href={`${base}${page.id}`} class="footer-link">{page.data.title}</a></li>
           ))}
+          <li><a href={`${base}admin`} class="footer-link">Login</a></li>
         </ul>
         <div class="footer-copy">
           &copy; {new Date().getFullYear()} Tudorfer Kulturverein. All rights reserved.

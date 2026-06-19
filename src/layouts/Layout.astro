@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Tudorfer Kulturverein - Fostering community, culture, and traditions." } = Astro.props;
+
+// Fetch all pages dynamically for the navbar
+const allPages = await getCollection('pages');
+
+// Determine if we are on a page to add "active" class
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+
+// Helper to check active state
+const isActiveLink = (path: string) => {
+  // Normalize both paths by removing trailing slashes
+  const p1 = path.endsWith('/') ? path.slice(0, -1) : path;
+  const p2 = currentPath.endsWith('/') ? currentPath.slice(0, -1) : currentPath;
+  return p1 === p2;
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" href={`${base}favicon.ico`} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Tudorfer Kulturverein</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-container">
+        <a href={base} class="logo">
+          <span class="logo-icon"></span>
+          Tudorfer Kulturverein
+        </a>
+        <nav>
+          <ul class="nav-list">
+            <li>
+              <a href={base} class={isActiveLink(base) ? 'nav-link active' : 'nav-link'}>
+                Blog
+              </a>
+            </li>
+            {allPages.map(page => {
+              const href = `${base}${page.id}`;
+              return (
+                <li>
+                  <a href={href} class={isActiveLink(href) ? 'nav-link active' : 'nav-link'}>
+                    {page.data.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+        <div>
+          <a href={`${base}contact`} class="cta-button">Join Us</a>
+        </div>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <div class="container footer-container">
+        <div>
+          <div class="footer-logo">
+            <span class="logo-icon"></span>
+            Tudorfer Kulturverein
+          </div>
+          <p style="color: #64748b; margin-top: 0.5rem; font-size: 0.85rem;">Fostering culture and community since 1998.</p>
+        </div>
+        <ul class="footer-nav">
+          <li><a href={base} class="footer-link">Blog</a></li>
+          {allPages.map(page => (
+            <li><a href={`${base}${page.id}`} class="footer-link">{page.data.title}</a></li>
+          ))}
+        </ul>
+        <div class="footer-copy">
+          &copy; {new Date().getFullYear()} Tudorfer Kulturverein. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

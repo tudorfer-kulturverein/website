@@ -1,0 +1,62 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <main>
+    <article>
+      <!-- Post Header -->
+      <header class="post-header">
+        <div class="container post-meta">
+          <a href={import.meta.env.BASE_URL} class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Blog
+          </a>
+          <div class="blog-date" style="font-size: 0.95rem; margin-bottom: 1rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            {formatDate(post.data.date)}
+          </div>
+          <h1 class="post-title">{post.data.title}</h1>
+          <p style="font-size: 1.2rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">
+            {post.data.description}
+          </p>
+        </div>
+      </header>
+
+      <!-- Post Content -->
+      <div class="container post-body-container">
+        <div class="post-content">
+          <Content />
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>

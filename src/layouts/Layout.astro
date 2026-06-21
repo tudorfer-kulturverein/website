@@ -11,7 +11,7 @@ const { title, description = "Tudorfer Kulturverein - Fostering community, cultu
 
 // Fetch all pages dynamically for the navbar
 const allPages = await getCollection('pages');
-const footerPages = allPages.filter(page => page.id === 'about' || page.id === 'contact');
+const footerPages = allPages.filter(page => page.data.inFooter);
 
 // Determine if we are on a page to add "active" class
 const currentPath = Astro.url.pathname;
@@ -30,7 +30,8 @@ interface NavItem {
   title: string;
   href: string;
   isDropdown: boolean;
-  children?: { title: string; href: string }[];
+  order: number;
+  children?: { title: string; href: string; order: number; }[];
 }
 
 const navItems: NavItem[] = [];
@@ -56,17 +57,25 @@ allPages.forEach(page => {
 Object.keys(groups).forEach(parentSlug => {
   // Check if there is an exact root-level page matching this parent slug (e.g. showtanz-contest.md)
   const matchingRoot = rootPages.find(p => p.id === parentSlug);
-  
+
   const children = groups[parentSlug].map(child => ({
     title: child.data.title,
-    href: `${base}${child.id}`
-  }));
+    href: `${base}${child.id}`,
+    order: child.data.order,
+  })).sort((p1, p2) => p1.order - p2.order);
 
   if (matchingRoot) {
+    children.unshift({
+      title: "Info",
+      href: `${base}${matchingRoot.id}`,
+      order: -1,
+    });
+
     navItems.push({
       title: matchingRoot.data.title,
       href: `${base}${matchingRoot.id}`,
       isDropdown: true,
+      order: matchingRoot.data.order,
       children
     });
     // Remove from roots so it isn't listed twice
@@ -80,11 +89,12 @@ Object.keys(groups).forEach(parentSlug => {
       .split('-')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
-      
+
     navItems.push({
       title: formattedTitle,
       href: '#',
       isDropdown: true,
+      order: -1,
       children
     });
   }
@@ -95,9 +105,12 @@ rootPages.forEach(page => {
   navItems.push({
     title: page.data.title,
     href: `${base}${page.id}`,
+    order: page.data.order,
     isDropdown: false
   });
 });
+
+navItems.sort((p1, p2) => p1.order - p2.order);
 ---
 <!DOCTYPE html>
 <html lang="en">

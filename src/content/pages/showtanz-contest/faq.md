@@ -1,6 +1,7 @@
 ---
-title: "Contest FAQ"
+title: "FAQ"
 description: "Frequently asked questions about the TUKUJU Showtanz Contest."
+order: 1
 ---
 
 # Contest FAQ

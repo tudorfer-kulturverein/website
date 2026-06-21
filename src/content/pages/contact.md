@@ -1,7 +1,8 @@
 ---
 title: "Contact"
 description: "Get in touch with Tudorfer Kulturverein. We would love to hear from you!"
-order: 2
+inFooter: true
+order: 3
 ---
 
 # Contact Us

@@ -204,6 +204,63 @@ a:hover {
   width: 100%;
 }
 
+/* Dropdown Navigation Menu */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.dropdown-svg {
+  margin-left: 7px;
+  transition: transform var(--transition-fast);
+}
+
+.nav-item-dropdown:hover .dropdown-svg {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-55%) translateY(10px);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 200px;
+  padding: 0.75rem 0;
+  margin: 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-55%) translateY(0);
+}
+
+.dropdown-link {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  padding: 0.5rem 1.25rem;
+  display: block;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.dropdown-link:hover,
+.dropdown-link.active {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
 .cta-button {
   background-color: var(--color-primary);
   color: white;
@@ -555,5 +612,20 @@ a:hover {
 
   .site-header .nav-list {
     gap: 1rem;
+  }
+
+  .nav-item-dropdown:hover .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    border: none;
+    box-shadow: none;
+    padding: 0.5rem 0 0 1rem;
+    min-width: auto;
+  }
+
+  .dropdown-link {
+    padding: 0.35rem 0;
   }
 }

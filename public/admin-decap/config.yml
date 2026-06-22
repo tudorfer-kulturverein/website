@@ -1,7 +1,11 @@
+# backend:
+#   name: github
+#   repo: tudorfer-kulturverein/website
+#   branch: main
+
+local_backend: true
 backend:
-  name: github
-  repo: tudorfer-kulturverein/website
-  branch: main
+  name: git-gateway
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
@@ -23,6 +27,10 @@ collections:
     folder: "src/content/pages"
     create: true
     slug: "{{slug}}"
+    nested:
+      depth: 5
+      subfolders: false
+    meta: {path: {widget: "string", label: "Path", index_file: "index"}}
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}

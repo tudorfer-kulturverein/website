@@ -1,3 +1,4 @@
+local_backend: true
 backend:
   name: github
   repo: tudorfer-kulturverein/website
@@ -21,6 +22,18 @@ collections:
   - name: "pages"
     label: "Pages"
     folder: "src/content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Shown in footer", name: "inFooter", widget: "boolean"}
+      - {label: "Order", name: "order", widget: "number"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "showtanz_pages"
+    label: "Showtanz Contest Pages"
+    folder: "src/content/pages/showtanz-contest"
     create: true
     slug: "{{slug}}"
     fields:

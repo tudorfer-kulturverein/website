@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Navbar from '../components/Navbar.svelte';
 import '../styles/global.css';
 
 interface Props {
@@ -124,58 +125,7 @@ navItems.sort((p1, p2) => p1.order - p2.order);
     <meta name="description" content={description} />
   </head>
   <body>
-    <header class="site-header">
-      <div class="container header-container">
-        <a href={base} class="logo" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
-          <img src={`${base}logo.png`} alt="TUKUJU Logo" style="height: 3.2rem; width: auto; object-fit: contain;" />
-          <div style="display: flex; flex-direction: column; line-height: 1.1; justify-content: center;">
-            <span style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 800; background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Tudorfer Kulturverein</span>
-            <span style="font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; color: var(--color-primary); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.1rem; display: block; white-space: nowrap;">für junge Unterhaltung e.V.</span>
-          </div>
-        </a>
-        <nav>
-          <ul class="nav-list">
-            <li>
-              <a href={base} class={isActiveLink(base) ? 'nav-link active' : 'nav-link'}>
-                Home
-              </a>
-            </li>
-            {navItems.map(item => {
-              if (item.isDropdown) {
-                const isAnyChildActive = item.children?.some(child => isActiveLink(child.href)) || isActiveLink(item.href);
-                return (
-                  <li class="nav-item-dropdown">
-                    <a class={isAnyChildActive ? 'nav-link active' : 'nav-link'} href={item.href === '#' ? undefined : item.href}>
-                      {item.title}
-                      <svg class="dropdown-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
-                    </a>
-                    <ul class="dropdown-menu">
-                      {item.children?.map(child => (
-                        <li>
-                          <a href={child.href} class={isActiveLink(child.href) ? 'dropdown-link active' : 'dropdown-link'}>
-                            {child.title}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                );
-              } else {
-                return (
-                  <li>
-                    <a href={item.href} class={isActiveLink(item.href) ? 'nav-link active' : 'nav-link'}>
-                      {item.title}
-                    </a>
-                  </li>
-                );
-              }
-            })}
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <Navbar navItems={navItems} base={base} currentPath={currentPath} client:load />
 
     <slot />
 

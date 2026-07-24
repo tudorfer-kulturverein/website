@@ -1,6 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import HeroCarousel from '../components/HeroCarousel.svelte';
+
+const heroImages = [
+  { src: '/images/verein.jpg', alt: 'Kulturverein Team', text: 'Gemeinschaft erleben' },
+  { src: '/images/halloween.jpg', alt: 'Halloween Event', text: 'Spannende Events' },
+  { src: '/images/torpedo.jpg', alt: 'Torpedo Project', text: 'Kreative Projekte' }
+];
 
 // Fetch all blog posts and sort by date descending
 const posts = await getCollection('blog');
@@ -31,6 +38,9 @@ const formatDate = (date: Date) => {
         <p class="hero-description">
           Fostering culture, arts, local heritage, and community connection. Read our latest stories, news, and project announcements below.
         </p>
+        <div style="margin-top: 2rem; margin-bottom: 2rem; width: 100%; max-width: 1000px; margin-left: auto; margin-right: auto;">
+          <HeroCarousel client:load images={heroImages} />
+        </div>
         <a href="#blog-section" class="cta-button">Read Blog Posts</a>
       </div>
     </section>

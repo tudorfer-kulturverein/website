@@ -53,8 +53,8 @@
         {#if i < images.length - 1}
           <div class="lightning-divider">
             <svg viewBox="0 0 100 1000" preserveAspectRatio="none" class="bolt-svg">
-              <!-- A jagged lightning bolt path -->
-              <path d="M50,0 L20,300 L60,300 L10,600 L50,600 L0,1000 L90,450 L50,450 L80,150 Z" fill="white" />
+              <path d="M 30,0 L 10,100 L 40,180 L 15,250 L 35,350 L 10,480 L 35,550 L 15,680 L 40,750 L 20,880 L 35,1000 
+                       L 85,1000 L 70,880 L 90,750 L 65,680 L 85,550 L 60,480 L 85,350 L 65,250 L 90,180 L 60,100 L 80,0 Z" fill="white" />
             </svg>
           </div>
         {/if}
@@ -83,7 +83,7 @@
   .carousel-track {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    height: 500px;
+    height: 700px;
   }
 
   .carousel-slide {
@@ -131,10 +131,10 @@
   /* Lightning Divider */
   .lightning-divider {
     position: absolute;
-    top: 0;
-    right: -25px; /* Offset to overlap the next slide slightly */
-    width: 50px;
-    height: 100%;
+    top: -10%;
+    right: -30px;
+    width: 60px;
+    height: 120%;
     z-index: 10;
     pointer-events: none;
     filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.3));
@@ -180,8 +180,8 @@
       height: 400px;
     }
     .lightning-divider {
-      right: -15px;
-      width: 30px;
+      right: -20px;
+      width: 40px;
     }
   }
 </style>

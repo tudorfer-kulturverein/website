@@ -78,14 +78,12 @@
     width: 100%;
     overflow: hidden;
     background-color: var(--color-background, #0f172a);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 
   .carousel-track {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    height: 400px;
+    height: 500px;
   }
 
   .carousel-slide {
@@ -179,7 +177,7 @@
 
   @media (max-width: 768px) {
     .carousel-track {
-      height: 300px;
+      height: 400px;
     }
     .lightning-divider {
       right: -15px;

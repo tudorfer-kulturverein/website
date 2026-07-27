@@ -4,8 +4,8 @@ import Layout from '../layouts/Layout.astro';
 import HeroCarousel from '../components/HeroCarousel.svelte';
 
 const heroImages = [
-  { src: '/images/verein.jpg', alt: 'Kulturverein Team', text: 'Gemeinschaft erleben' },
   { src: '/images/halloween.jpg', alt: 'Halloween Event', text: 'Spannende Events' },
+  { src: '/images/verein.jpg', alt: 'Kulturverein Team', text: 'Gemeinschaft erleben' },
   { src: '/images/torpedo.jpg', alt: 'Torpedo Project', text: 'Kreative Projekte' }
 ];
 
@@ -26,22 +26,21 @@ const formatDate = (date: Date) => {
 <Layout title="Home" description="Welcome to Tudorfer Kulturverein - your community portal for arts, culture, and events. Browse our latest blog posts and club updates.">
   <main>
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="padding-bottom: 0;">
       <div class="hero-glow"></div>
       <div class="hero-overlay"></div>
-      <div class="container hero-content">
+      <div class="container hero-content" style="margin-bottom: 4rem;">
         <span class="hero-tag">Welcome to our community</span>
         <h1 class="hero-title" style="margin-bottom: 0.25rem;">Tudorfer Kulturverein</h1>
         <div style="font-family: var(--font-body); font-size: 1.1rem; font-weight: 700; color: var(--color-accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">
           für junge Unterhaltung e.V.
         </div>
-        <p class="hero-description">
+        <p class="hero-description" style="margin-bottom: 0;">
           Fostering culture, arts, local heritage, and community connection. Read our latest stories, news, and project announcements below.
         </p>
-        <div style="margin-top: 2rem; margin-bottom: 2rem; width: 100%; max-width: 1000px; margin-left: auto; margin-right: auto;">
-          <HeroCarousel client:load images={heroImages} />
-        </div>
-        <a href="#blog-section" class="cta-button">Read Blog Posts</a>
+      </div>
+      <div style="width: 100%; position: relative; z-index: 2;">
+        <HeroCarousel client:load images={heroImages} />
       </div>
     </section>
 

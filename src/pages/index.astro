@@ -3,11 +3,8 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import HeroCarousel from '../components/HeroCarousel.svelte';
 
-const heroImages = [
-  { src: '/images/halloween.jpg', alt: 'Halloween Event', text: 'Spannende Events' },
-  { src: '/images/verein.jpg', alt: 'Kulturverein Team', text: 'Gemeinschaft erleben' },
-  { src: '/images/torpedo.jpg', alt: 'Torpedo Project', text: 'Kreative Projekte' }
-];
+import heroData from '../data/hero.json';
+const heroImages = heroData.images;
 
 // Fetch all blog posts and sort by date descending
 const posts = await getCollection('blog');

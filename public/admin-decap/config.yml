@@ -39,3 +39,19 @@ collections:
       - {label: "Shown in footer", name: "inFooter", widget: "boolean"}
       - {label: "Order", name: "order", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "settings"
+    label: "Settings"
+    files:
+      - label: "Hero Carousel"
+        name: "hero_carousel"
+        file: "src/data/hero.json"
+        fields:
+          - label: "Images"
+            name: "images"
+            widget: "list"
+            fields:
+              - {label: "Image", name: "src", widget: "image"}
+              - {label: "Alt Text", name: "alt", widget: "string"}
+              - {label: "Text", name: "text", widget: "string", required: false}
+              - {label: "HTML Content", name: "html", widget: "code", default_language: 'html', allow_language_selection: false, output_code_only: true, required: false}

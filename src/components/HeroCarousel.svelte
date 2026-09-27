@@ -46,6 +46,11 @@
             {#if image.text}
               <h3 class="slide-text">{image.text}</h3>
             {/if}
+            {#if image.html}
+              <div class="slide-html">
+                {@html image.html}
+              </div>
+            {/if}
           </div>
         </div>
         
@@ -126,6 +131,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    color: var(--color-accent)
   }
 
   /* Lightning Divider */

@@ -1,0 +1,22 @@
+{
+  "images": [
+    {
+      "src": "/images/halloween.jpg",
+      "alt": "Halloween Event",
+      "text": "Spannende Events",
+      "html": "<a href=\"#events\" class=\"cta-button\" style=\"font-size: 0.9rem; padding: 0.5rem 1rem; margin-top: 1rem; display: inline-block;\">View Events</a>"
+    },
+    {
+      "src": "/images/verein.jpg",
+      "alt": "Kulturverein Team",
+      "text": "Gemeinschaft erleben",
+      "html": ""
+    },
+    {
+      "src": "/images/torpedo.jpg",
+      "alt": "Torpedo Project",
+      "text": "Kreative Projekte",
+      "html": "<a href=\"#blog-section\" class=\"cta-button\" style=\"font-size: 0.9rem; padding: 0.5rem 1rem; margin-top: 1rem; display: inline-block;\">Read Blog</a>"
+    }
+  ]
+}

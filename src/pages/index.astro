@@ -12,7 +12,7 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
 
 // Formatter for publication date
 const formatDate = (date: Date) => {
-  return date.toLocaleDateString('en-US', {
+  return date.toLocaleDateString('de-DE', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -27,13 +27,13 @@ const formatDate = (date: Date) => {
       <div class="hero-glow"></div>
       <div class="hero-overlay"></div>
       <div class="container hero-content">
-        <span class="hero-tag">Welcome to our community</span>
+        <span class="hero-tag">Willkommen beim TUKUJU</span>
         <h1 class="hero-title" style="margin-bottom: 0.25rem;">Tudorfer Kulturverein</h1>
         <div style="font-family: var(--font-body); font-size: 1.1rem; font-weight: 700; color: var(--color-accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">
           für junge Unterhaltung e.V.
         </div>
         <p class="hero-description" style="margin-bottom: 0;">
-          Fostering culture, arts, local heritage, and community connection. Read our latest stories, news, and project announcements below.
+          Alles rund um Karneval! Erlebe die lustigsten Witze, die spannensten Sketche und die torpedotastischten Tanzeinlagen.
         </p>
       </div>
       <div style="width: 100%; position: relative; z-index: 2;">
@@ -44,13 +44,13 @@ const formatDate = (date: Date) => {
     <!-- Blog Section -->
     <section id="blog-section" class="container section-padding">
       <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
-        <h2 style="margin-bottom: 1rem;">Latest Updates</h2>
-        <p>Stay up to date with the latest projects, event schedules, and announcements from our club members.</p>
+        <h2 style="margin-bottom: 1rem;">Aktuelles</h2>
+        <p>Bleibe auf dem Laufenden über die neuesten Projekte, Veranstaltungen und Ankündigungen unseres Vereins.</p>
       </div>
 
       {sortedPosts.length === 0 ? (
         <p style="text-align: center; color: var(--color-text-light); font-style: italic; margin-top: 3rem;">
-          No blog posts found. Check back later or create one via the CMS!
+          Momentan sind keine Blogeinträge vorhanden.
         </p>
       ) : (
         <div class="blog-grid">
@@ -68,7 +68,7 @@ const formatDate = (date: Date) => {
               <h3 class="blog-card-title">{post.data.title}</h3>
               <p class="blog-card-excerpt">{post.data.description}</p>
               <a href={`${import.meta.env.BASE_URL}blog/${post.id}`} class="blog-read-more">
-                Read Article
+                Artikel lesen
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>

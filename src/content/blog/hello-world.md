@@ -1,17 +1,17 @@
 ---
-title: "Welcome to Tudorfer Kulturverein!"
+title: "Willkommen auf der Website des TUKUJUs"
 date: 2026-06-19T12:00:00Z
-description: "We are thrilled to launch our new website powered by Astro, Svelte, and Sveltia CMS. Read about our upcoming projects and events!"
+description: "Wir freuen uns sehr, unsere neue Website vorstellen zu dürfen. Informieren Sie sich über unsere kommenden Projekte und Veranstaltungen!"
 ---
 
-Welcome to the new digital home of **Tudorfer Kulturverein**! 
+Willkommen auf der neuen digitalen Plattform des **Tudorfer Kulturvereins**!
 
-Our club is dedicated to fostering culture, arts, community events, and local traditions in our region. With this new website, we want to make it easier for members, locals, and visitors to stay updated with what's happening.
+Unser Verein hat es sich zur Aufgabe gemacht, Kultur, Kunst, Gemeinschaftsveranstaltungen und lokale Traditionen in unserer Region zu fördern. Mit dieser neuen Website möchten wir es Mitgliedern, Einheimischen und Besuchern erleichtern, sich über aktuelle Ereignisse auf dem Laufenden zu halten.
 
-### What is next?
-We are planning a series of exciting community gatherings, including:
-- **Summer Concert Series:** Showcasing local acoustic bands.
-- **Art & Craft Workshops:** Interactive weekend sessions for all age groups.
-- **History Exhibition:** Exploring the archives of our village.
+### Was steht als Nächstes an?
+Wir planen eine Reihe spannender Gemeinschaftsveranstaltungen, darunter:
+- **Karnevalsveranstaltung:** Wir übernehmen die Karnevalsveranstaltung in Tudorf.
+- **Showtanz Contest:** Wie immer richten wir den Showtanz Contest in Niederntudorf aus, bei denen die Tanzgruppen gegeneinander antreten.
+- **Halloween Pary:** Zu unserem 20-jährigen Jubiläum verantstalten wir eine Helloween Party im Bürgerhaus Oberntudorf.
 
-Stay tuned for more updates, and feel free to reach out to us if you want to participate or become a member!
+Bleibt auf dem Laufenden und meldet euch gerne bei uns, wenn ihr mitmachen oder Mitglied werden möchtet!

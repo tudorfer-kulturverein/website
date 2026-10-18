@@ -13,7 +13,9 @@ const { title, description = "Tudorfer Kulturverein - Fostering community, cultu
 
 // Fetch all pages dynamically for the navbar
 const allPages = await getCollection('pages');
-const footerPages = allPages.filter(page => page.data.inFooter);
+const footerPages = allPages
+  .filter(page => page.data.inFooter)
+  .sort((a, b) => a.data.order - b.data.order);
 
 // Determine if we are on a page to add "active" class
 const currentPath = Astro.url.pathname;
@@ -112,7 +114,7 @@ rootPages.forEach(page => {
   });
 });
 
-navItems.sort((p1, p2) => p1.order - p2.order);
+navItems.sort((a, b) => a.order - b.order);
 ---
 <!DOCTYPE html>
 <html lang="en">

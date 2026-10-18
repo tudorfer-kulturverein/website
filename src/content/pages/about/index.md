@@ -1,6 +1,6 @@
 ---
 order: 3
-title: About Us
+title: Über uns
 root_title: ''
 description: Learn more about Tudorfer Kulturverein, our mission, and the people behind the club.
 inFooter: true

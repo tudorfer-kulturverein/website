@@ -1,6 +1,6 @@
 ---
 order: 4
-title: Contact
+title: Kontakt
 root_title: ''
 description: Get in touch with Tudorfer Kulturverein. We would love to hear from you!
 inFooter: true

@@ -15,8 +15,10 @@ const pages = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
   schema: z.object({
     title: z.string(),
+    root_title: z.string().optional(),
     description: z.string(),
     inFooter: z.boolean().optional(),
+    inNav: z.boolean().optional(),
     order: z.number().default(10),
   }),
 });

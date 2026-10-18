@@ -1,11 +1,8 @@
-# backend:
-#   name: github
-#   repo: tudorfer-kulturverein/website
-#   branch: main
-
 local_backend: true
 backend:
-  name: git-gateway
+  name: github
+  repo: tudorfer-kulturverein/website
+  branch: main
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
@@ -30,14 +27,16 @@ collections:
     create: true
     slug: "{{slug}}"
     nested:
-      depth: 5
-      subfolders: false
-    meta: {path: {widget: "string", label: "Path", index_file: "index"}}
+      depth: 3
+      subfolders: true
+    meta: { path: { index_file: index.md } }
+    reorder: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Navbar root title", name: "root_title", widget: "string", hint: 'Only works for dropdown root items. Defaults to "Info"', required: false}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Shown in footer", name: "inFooter", widget: "boolean"}
-      - {label: "Order", name: "order", widget: "number"}
+      - {label: "Shown in nav bar", name: "inNav", widget: "boolean", default: true}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "settings"

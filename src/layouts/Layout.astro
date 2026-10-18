@@ -41,7 +41,7 @@ const navItems: NavItem[] = [];
 const groups: Record<string, typeof allPages> = {};
 const rootPages: typeof allPages = [];
 
-allPages.forEach(page => {
+allPages.filter(page => page.data.inNav).forEach(page => {
   const parts = page.id.split('/');
   if (parts.length > 1) {
     const parentSlug = parts[0];
@@ -67,7 +67,7 @@ Object.keys(groups).forEach(parentSlug => {
 
   if (matchingRoot) {
     children.unshift({
-      title: "Info",
+      title: matchingRoot.data.root_title || "Info",
       href: `${base}${matchingRoot.id}`,
       order: -1,
     });

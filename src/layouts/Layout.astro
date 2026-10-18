@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Navbar from '../components/Navbar.svelte';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -129,28 +130,6 @@ navItems.sort((p1, p2) => p1.order - p2.order);
 
     <slot />
 
-    <footer class="site-footer">
-      <div class="container footer-container">
-        <div>
-          <div class="footer-logo" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
-            <img src={`${base}logo.png`} alt="TUKUJU Logo" style="height: 2.75rem; width: auto; object-fit: contain;" />
-            <div style="display: flex; flex-direction: column; line-height: 1.1; justify-content: center;">
-              <span style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: white;">Tudorfer Kulturverein</span>
-              <span style="font-family: var(--font-body); font-size: 0.65rem; font-weight: 700; color: var(--color-accent); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.1rem; display: block; white-space: nowrap;">für junge Unterhaltung e.V.</span>
-            </div>
-          </div>
-          <p style="color: #64748b; margin-top: 0.5rem; font-size: 0.85rem;">Fostering culture and community since 1998.</p>
-        </div>
-        <ul class="footer-nav">
-          <li><a href={base} class="footer-link">Home</a></li>
-          {footerPages.map(page => (
-            <li><a href={`${base}${page.id}`} class="footer-link">{page.data.title}</a></li>
-          ))}
-        </ul>
-        <div class="footer-copy">
-          &copy; {new Date().getFullYear()} Tudorfer Kulturverein. All rights reserved.
-        </div>
-      </div>
-    </footer>
+    <Footer footerPages={footerPages} base={base} />
   </body>
 </html>
